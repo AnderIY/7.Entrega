@@ -12,9 +12,7 @@ require_once(APP_DIR . '/src/views/parts/header.php');
 
 ?>
 <div class="laburpenaDiv">
-    <?php 
-        $config = simplexml_load_file(APP_DIR . '/conf.xml');
-    ?>
+  
     <form action="<?= HREF_APP_DIR ?>/src/php/post.php" method="post">
         <input type="hidden" value="changeConfig" name="action" />
         <div>
