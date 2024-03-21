@@ -3,11 +3,11 @@
 function getEnvVariables()
 {
     $env = parse_ini_file(APP_DIR . '/.env');
+    $servername = $env["SERVER_NAME"];
+    $dbName = $env["DB_NAME"];
+    $username = $env["USERNAME"];
+    $password = $env["PASSWORD"];
 
-    $servername = $env["localhost"];
-    $dbName = $env["goierri_azoka_zikloak_garbi"];
-    $username = $env["root"];
-    $password = $env[""];
 
     return [
         $servername,
