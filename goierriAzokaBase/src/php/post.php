@@ -195,8 +195,7 @@ function changeConfig($inputValue)
     //XML konfigurazioa
     $config = simplexml_load_file(APP_DIR . '/conf.xml');
 
-    //TODO: GARATZEKO
-
+   
     //Orri nagusira redirekzioa egiteko
     $location = HREF_APP_DIR . "/src/views/main/index.php";
     
