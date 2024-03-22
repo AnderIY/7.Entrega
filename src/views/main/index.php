@@ -144,8 +144,8 @@ if ($result->num_rows > 0) {
         $correo = $_POST["correo"];
         $mensaje = $_POST["mensaje"];
         $kurtsoa = isset($_POST["kurtsoa"]) ? $_POST["kurtsoa"] : 1;
-        
-        // Agregar nueva opinión
+
+        // Iritzi berria gehitu
         $nueva_opinion = $xml->addChild('opinion');
         $nueva_opinion->addChild('nombre', $nombre);
         $nueva_opinion->addChild('correo', $correo);
@@ -153,11 +153,31 @@ if ($result->num_rows > 0) {
         $nueva_opinion->addChild('kurtsoa', $kurtsoa);
         $nueva_opinion->addChild('fecha', date("Y-m-d H:i:s"));
    
-        // Guardar el archivo XML actualizado
+        // XML-a gorde
         $xml->asXML("iruzkinak.xml");
     }
 ?>
 
+<?php
+    // Orrialdearen URL-a jaso
+    $pagina_actual = $_SERVER["REQUEST_URI"];
+    
+    // XML-a kargatu
+    $xml = simplexml_load_file("iruzkinak.xml");
+    
+    // Iritziak erakutxi
+    foreach ($xml->opinion as $opinion) {
+        // Konfirmatu valoreak koinziditzen dutela
+        if ($opinion->kurtsoa == $kurtsoa) {
+            echo "<div>";
+            echo "<p><strong>Nombre:</strong> " . $opinion->nombre . "</p>";
+            echo "<p><strong>Correo:</strong> " . $opinion->correo . "</p>";
+            echo "<p><strong>Mensaje:</strong> " . $opinion->mensaje . "</p>";
+            echo "<p><strong>Fecha:</strong> " . $opinion->fecha . "</p>";
+            echo "</div>";
+        }
+    }
+?>
         </div>
 
         <?php
