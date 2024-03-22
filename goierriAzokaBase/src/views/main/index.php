@@ -154,4 +154,7 @@ if ($result->num_rows > 0) {
     }
 }
 require_once(APP_DIR  . '/src//views/parts/layouts/layoutBottom.php');
+
+$xml = simplexml_load_file(APP_DIR .'/iruzkinak.xml');
+
 ?>
