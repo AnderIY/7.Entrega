@@ -138,6 +138,26 @@ if ($result->num_rows > 0) {
 
         </div>
 
+<?php
+     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $nombre = $_POST["nombre"];
+        $correo = $_POST["correo"];
+        $mensaje = $_POST["mensaje"];
+        $kurtsoa = isset($_POST["kurtsoa"]) ? $_POST["kurtsoa"] : 1;
+        
+        // Agregar nueva opinión
+        $nueva_opinion = $xml->addChild('opinion');
+        $nueva_opinion->addChild('nombre', $nombre);
+        $nueva_opinion->addChild('correo', $correo);
+        $nueva_opinion->addChild('mensaje', $mensaje);
+        $nueva_opinion->addChild('kurtsoa', $kurtsoa);
+        $nueva_opinion->addChild('fecha', date("Y-m-d H:i:s"));
+   
+        // Guardar el archivo XML actualizado
+        $xml->asXML("iruzkinak.xml");
+    }
+?>
+
         </div>
 
         <?php
