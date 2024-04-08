@@ -1,4 +1,6 @@
 <?php
+//Bi aldiz daukazue kodea.
+
 
 session_start();
 

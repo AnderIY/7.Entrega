@@ -139,6 +139,8 @@ if ($result->num_rows > 0) {
         </div>
 
 <?php
+    //Formularioa ez dago orduan ezin du ezer inprimatu. Horrez gain, xml-a ere ez dago.
+
      if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nombre = $_POST["nombre"];
         $correo = $_POST["correo"];
